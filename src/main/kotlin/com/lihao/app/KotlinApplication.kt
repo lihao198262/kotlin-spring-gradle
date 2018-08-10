@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
 import javax.annotation.Resource
 import org.springframework.data.redis.core.ValueOperations
-
+import org.springframework.mobile.device.Device
 
 
 val logger: Logger = LoggerFactory.getLogger("KotlinApplication.kt")
@@ -57,6 +57,19 @@ class MainController {
         val a = 100;
         modle.addAttribute("a", a);
         return "login.html"
+    }
+
+    @GetMapping("device")
+    fun device(device: Device, modle: Model): String {
+
+        if (device.isMobile()) {
+            modle.addAttribute("a", "Hello mobile user!");
+        } else if (device.isTablet()) {
+            modle.addAttribute("a", "Hello tablet user!");
+        } else {
+            modle.addAttribute("a", "Hello desktop user!");
+        }
+        return "device.html"
     }
 
     @PostMapping("login-post")

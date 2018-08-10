@@ -24,6 +24,7 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencies {
@@ -33,6 +34,9 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
+    compile 'org.springframework.mobile:spring-mobile-starter:2.0.0.M3'
+
+
     runtime 'org.springframework.boot:spring-boot-devtools'
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
