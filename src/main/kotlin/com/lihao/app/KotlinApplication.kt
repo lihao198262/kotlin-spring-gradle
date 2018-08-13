@@ -67,7 +67,33 @@ class MainController {
         } else if (device.isTablet()) {
             modle.addAttribute("a", "Hello tablet user!");
         } else {
-            modle.addAttribute("a", "Hello desktop user!");
+            modle.addAttribute("a", "Hello desktop user! ${device.toString()}");
+        }
+        return "device.html"
+    }
+
+    @GetMapping("device/m")
+    fun deviceM(device: Device, modle: Model): String {
+
+        if (device.isMobile()) {
+            modle.addAttribute("a", "Hello mobile user! m");
+        } else if (device.isTablet()) {
+            modle.addAttribute("a", "Hello tablet user! m");
+        } else {
+            modle.addAttribute("a", "Hello desktop user! m");
+        }
+        return "device.html"
+    }
+
+    @GetMapping("bbb")
+    fun mobileDevice(device: Device, modle: Model): String {
+
+        if (device.isMobile()) {
+            modle.addAttribute("a", "Hello mobile user! bbb");
+        } else if (device.isTablet()) {
+            modle.addAttribute("a", "Hello tablet user! bbb");
+        } else {
+            modle.addAttribute("a", "Hello desktop user! bbb");
         }
         return "device.html"
     }
